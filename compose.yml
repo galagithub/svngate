@@ -13,11 +13,11 @@ services:
     restart: unless-stopped
 
     ports:
-      - "${MY_SERVER_WEB_PORT}:80"
+      - "${MY_SERVER_WEB_PORT-8080}:80"
       - "3690:3690"
 
     environment:
-      SERVER_NAME: ${MY_SERVER_NAME}
+      SERVER_NAME: ${MY_SERVER_NAME-svn.example.com}
 
     volumes:
-      - ${MY_SVN_REPOS_ROOT}:/var/svn
+      - ${MY_SVN_REPOS_ROOT-/srv/svn_repos}:/var/svn
