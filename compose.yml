@@ -1,0 +1,23 @@
+services:
+
+  svngate:
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: svngate
+
+    container_name: svngate
+
+    restart: unless-stopped
+
+    ports:
+      - "${MY_SERVER_WEB_PORT}:80"
+      - "3690:3690"
+
+    environment:
+      SERVER_NAME: ${MY_SERVER_NAME}
+
+    volumes:
+      - ${MY_SVN_REPOS_ROOT}:/var/svn
