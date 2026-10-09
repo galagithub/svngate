@@ -94,7 +94,6 @@ config edits, no rebuild.
 | `daemon-start.sh` | Starts `svnserve` and Apache, and traps `TERM`/`INT`/`HUP` so both shut down gracefully. |
 | `apache.conf` | Apache configuration (loaded as `/etc/apache2/conf.d/apache-svn.conf`): WebSVN alias, public `/svn` listing, vhost on `:80`. |
 | `compose.yml` | Compose service definition: build context, ports, env and the repository volume. |
-| `svnserve.yml` | Symlink to `docker-compose.yml`. **Currently dangling** — see [Known limitations](#known-limitations). |
 | `.env` | Optional local overrides for Compose variables. Git-ignored. |
 | `.gitignore` | Ignores `.env`. |
 | `LICENSE` | MIT License. |
@@ -489,13 +488,6 @@ only require a `docker compose restart svngate`.
 
 These are pre-existing characteristics of the project, recorded here so they are
 not mistaken for setup mistakes:
-
-- **`svnserve.yml` is a dangling symlink.** It points to `docker-compose.yml`,
-  but the Compose file in this repository is named `compose.yml`. Fix it with:
-
-  ```bash
-  ln -sfn compose.yml svnserve.yml
-  ```
 
 - **A dead daemon restarts the whole container, not just the process.** If
   `svnserve` or Apache dies, `daemon-start.sh` stops both and exits non-zero so
