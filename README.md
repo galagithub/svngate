@@ -112,7 +112,7 @@ config edits, no rebuild.
 
 ```bash
 # 1. Clone the project
-git clone <your-repository-url> svngate
+git clone https://github.com/galagithub/svngate.git svngate
 cd svngate
 
 # 2. Create your local environment file
