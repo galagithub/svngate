@@ -20,7 +20,8 @@ not have to migrate, `svnadmin dump`/`load`, or restructure anything.
 - [Architecture](#architecture)
 - [Project files](#project-files)
 - [Requirements](#requirements)
-- [Quick start](#quick-start)
+- [Using prebuilt images](#using-prebuilt-images)
+- [Build image locally](#build-image-locally)
 - [Configuration](#configuration)
 - [Repository layout](#repository-layout)
 - [Examples](#examples)
@@ -106,9 +107,20 @@ config edits, no rebuild.
 - An existing SVN repository tree on the host
 - Read access to that tree — the container never writes into your repositories
 
+
 ---
 
-## Quick start
+## Using prebuilt images
+
+You can also pull a pre‑built image from GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/galagithub/svngate:latest
+```
+
+---
+
+## Build image locally
 
 ```bash
 # 1. Clone the project
