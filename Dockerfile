@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.24
 
 ARG WEBSVN_VERSION=2.9.0
 
