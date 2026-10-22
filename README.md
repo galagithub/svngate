@@ -10,7 +10,7 @@ not have to migrate, `svnadmin dump`/`load`, or restructure anything.
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Docker](https://img.shields.io/badge/docker-compose-2496ED.svg?logo=docker&logoColor=white)
 ![WebSVN](https://img.shields.io/badge/WebSVN-2.9.0-orange.svg)
-![Platform](https://img.shields.io/badge/platform-Alpine%203.22-0D597F.svg?logo=alpinelinux&logoColor=white)
+![Platform](https://img.shields.io/badge/platform-Alpine%203.24-0D597F.svg?logo=alpinelinux&logoColor=white)
 
 ---
 
@@ -41,7 +41,7 @@ not have to migrate, `svnadmin dump`/`load`, or restructure anything.
 | Web UI | WebSVN 2.9.0 + PHP 8.4 | Read-only repository browsing in the browser |
 | HTTP access | Apache 2 + `mod_dav_svn` + `mod_authz_svn` | SVN over HTTP/WebDAV, HTTP Basic auth |
 | Native access | `svnserve` | Classic `svn://` protocol on port `3690` |
-| Base image | Alpine Linux 3.22 | Small footprint, `apk`-managed packages |
+| Base image | Alpine Linux 3.24 | Small footprint, `apk`-managed packages |
 | Process supervision | `daemon-start.sh` (shell, no supervisor) | Starts both daemons, shuts both down cleanly, and exits non-zero if either dies |
 
 Repositories are **discovered automatically at every container start**. Drop a
@@ -90,7 +90,7 @@ config edits, no rebuild.
 
 | File | Description |
 | --- | --- |
-| `Dockerfile` | Alpine 3.22 image; installs Apache, `mod_dav_svn`, Subversion, PHP 8.4 and WebSVN. |
+| `Dockerfile` | Alpine 3.24 image; installs Apache, `mod_dav_svn`, Subversion, PHP 8.4 and WebSVN. |
 | `entrypoint.sh` | Startup logic: discovers repositories, generates Apache vhost fragments, per-repo htpasswd files and the WebSVN config. |
 | `daemon-start.sh` | Starts `svnserve` and Apache, and traps `TERM`/`INT`/`HUP` so both shut down gracefully. |
 | `apache.conf` | Apache configuration (loaded as `/etc/apache2/conf.d/apache-svn.conf`): WebSVN alias, public `/svn` listing, vhost on `:80`. |
